@@ -29,6 +29,10 @@ impl TodoDB {
         self.db.read(|db| db.len()).unwrap()
     }
 
+    pub fn is_empty(&self) -> bool {
+        self.len() == 0
+    }
+
     pub fn pop(&self) -> Option<String> {
         self.db.write(|db| db.pop()).unwrap().map(|t| t.1)
     }

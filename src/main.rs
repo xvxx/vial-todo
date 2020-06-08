@@ -32,6 +32,10 @@ fn create(req: Request) -> Option<Response> {
 }
 
 fn todo_partial(req: &Request) -> vial::Result<String> {
+    if req.todos().is_empty() {
+        return Ok("<i>Add some TODOs to get started.</i>".into());
+    }
+
     let mut out = String::new();
     let template = asset::to_string("_todo.html")?;
     for (id, todo) in req.todos().all().iter().enumerate() {
