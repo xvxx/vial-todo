@@ -1,1 +1,11 @@
-<li><input type="checkbox" /> {todo}</li>
+<li>
+  <label>
+    <input
+      type="checkbox"
+      {checked}
+      data-id="{id}"
+      onclick="toggleTodo(this)"
+    />
+    {todo}
+  </label>
+</li>
